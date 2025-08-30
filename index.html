@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Cumpleaños, Amor 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      overflow-x: hidden;
+      text-align: center;
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 40px 15px 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      animation: fadeIn 2s ease-in-out;
+      word-wrap: break-word;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 10px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    /* Botón sorpresa */
+    .btn {
+      background: #ff4081;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      margin-top: 30px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+      box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background: #e91e63;
+    }
+
+    /* Animación corazones */
+    .heart {
+      position: fixed;
+      bottom: -10px;
+      font-size: 18px;
+      color: #ff4d6d;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+      z-index: 5;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+    }
+
+    /* Globos */
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 50px;
+      height: 70px;
+      border-radius: 50%;
+      animation: rise 10s infinite ease-in;
+      z-index: 1;
+    }
+
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background: #333;
+      transform: translateX(-50%);
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0) rotate(0); }
+      100% { transform: translateY(-120vh) rotate(20deg); }
+    }
+
+    /* Animaciones de entrada */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- RESPONSIVO --- */
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.1rem; }
+      .btn { font-size: 1rem; padding: 12px 25px; }
+      .balloon { width: 40px; height: 55px; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 1.6rem; }
+      h2 { font-size: 1rem; }
+      header { padding: 30px 10px; }
+      .btn { font-size: 0.9rem; padding: 10px 20px; }
+      .balloon { width: 35px; height: 50px; }
+      .heart { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1> 💛¡Feliz Cumpleaños, Mi Amor! 💕</h1>
+    <h1>Para MI HELEN la persona que m</h1>
+    <h2>💗💗💗💗 Eres la razón de mi sonrisa cada día 💗💗💗💗</h2>
+    <button class="btn" onclick="window.location.href='flower.html'">Haz clic para tu sorpresa 🎁</button>
+  </header>
+
+  <!-- Globos flotando -->
+  <div class="balloon" style="left: 10%; background:#ff7eb3;"></div>
+  <div class="balloon" style="left: 30%; background:#ffd36b;"></div>
+  <div class="balloon" style="left: 50%; background:#a29bfe;"></div>
+  <div class="balloon" style="left: 70%; background:#55efc4;"></div>
+  <div class="balloon" style="left: 90%; background:#fab1a0;"></div>
+
+  <script>
+    // Generar corazones flotando
+    function crearCorazon() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "💗                  💕                    H";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(crearCorazon, 600);
+
+    // Botón sorpresa
+    function mostrarSorpresa() {
+      alert("💗💗💗💗💗 Te amo con todo mi corazón, feliz cumpleaños 💗💗💗💗💗");
+    }
+  </script>
+</body>
+</html>
